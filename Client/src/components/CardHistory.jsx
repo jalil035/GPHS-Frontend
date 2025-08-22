@@ -1,26 +1,23 @@
+const content = {
+  title: "বিদ্যালয় ইতিহাস",
+  description: `ঘোড়াশাল পাইলট উচ্চ বিদ্যালয় নরসিংদী জেলার পলাশ উপজেলার ঘোড়াশালে ১৯৪৫ সালে প্রতিষ্ঠিত হয়। প্রতিষ্ঠার পর থেকেই বিদ্যালয়টি এলাকার শিক্ষার আলো ছড়িয়ে দিতে বিশেষ অবদান রেখে আসছে। এটি শুধু একটি শিক্ষা প্রতিষ্ঠান নয়, বরং একটি ঐতিহ্যবাহী কেন্দ্র যেখানে প্রজন্মের পর প্রজন্ম জ্ঞান অর্জনের সুযোগ পেয়েছে।
+
+  বিদ্যালয়ের লক্ষ্য সবসময় শিক্ষার্থীদের মানসম্মত শিক্ষা প্রদান, শৃঙ্খলাবদ্ধ জীবন গঠন এবং নৈতিক চরিত্র বিকাশ করা। এখানে শিক্ষকরা নিষ্ঠার সাথে পাঠদান করে শিক্ষার্থীদের দক্ষ ও যোগ্য নাগরিক হিসেবে গড়ে তুলতে সচেষ্ট। বিদ্যালয় থেকে অসংখ্য শিক্ষার্থী উত্তীর্ণ হয়ে দেশের বিভিন্ন গুরুত্বপূর্ণ ক্ষেত্রে যেমন প্রশাসন, শিক্ষা, চিকিৎসা, প্রকৌশল ও ব্যবসায় কৃতিত্বের স্বাক্ষর রেখেছে।
+
+  বিদ্যালয়ের পরিবেশ শিক্ষার জন্য অনুকূল এবং শিক্ষার্থীদের পড়াশোনার পাশাপাশি সহশিক্ষা কার্যক্রমেও অংশগ্রহণের সুযোগ দেয়। সাংস্কৃতিক অনুষ্ঠান, ক্রীড়া প্রতিযোগিতা ও বিভিন্ন সামাজিক কার্যক্রম শিক্ষার্থীদের মেধা বিকাশে গুরুত্বপূর্ণ ভূমিকা রাখে।
+
+  দীর্ঘ সময় ধরে এই প্রতিষ্ঠানটি শুধু স্থানীয়ভাবে নয়, পুরো জেলায় একটি স্বনামধন্য শিক্ষা প্রতিষ্ঠান হিসেবে পরিচিত। শিক্ষক, শিক্ষার্থী ও অভিভাবকদের সম্মিলিত প্রচেষ্টা বিদ্যালয়টিকে আজকের অবস্থানে পৌঁছে দিয়েছে। শিক্ষা বিস্তার, সামাজিক উন্নয়ন এবং আদর্শ নাগরিক তৈরিতে ঘোড়াশাল পাইলট উচ্চ বিদ্যালয় অগ্রণী ভূমিকা পালন করে চলেছে।`,
+};
 const CardHistory = () => (
   <div className="bg-white rounded shadow mb-10 mt-10 border border-gray-400">
     <div className="bg-blue-600 h-12 mb-4 flex justify-center items-center">
-      <h2 className="text-2xl text-white font-extrabold">বিদ্যালয় ইতিহাস</h2>
+      <h2 className="text-2xl text-white font-extrabold">{content.title}</h2>
     </div>
-    <p className="p-8 text-justify">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero esse vel
-      quod eius vitae optio aspernatur numquam magnam aut sint et fuga accusamus
-      ducimus magni provident iusto velit repudiandae consequuntur dicta dolorum
-      rem, harum cupiditate inventore! Totam dolores ea maiores similique qui
-      minima, quos sequi harum veniam odio laboriosam amet aliquam distinctio
-      eligendi eius numquam tempore. Vitae dolorem hic nobis fuga minus. Rerum,
-      unde fugiat nam praesentium accusamus neque et expedita ea fuga commodi
-      molestiae vero quibusdam dolorum ratione necessitatibus odio reiciendis
-      consequuntur minus, iusto aliquid! Maiores soluta praesentium laudantium
-      dolorum ad quae, veritatis magni dolorem. Dignissimos, fugit ducimus!
-      Saepe eius quasi nemo eum perferendis adipisci dolores rem ducimus alias,
-      impedit atque commodi libero quaerat odit quam cupiditate amet illum?
-      Dicta minus delectus voluptates exercitationem possimus obcaecati. Est
-      sint similique omnis libero quos reiciendis consequuntur unde voluptas
-      eius quod nulla asperiores, aliquam vitae totam sed corporis non hic a
-      modi?
-    </p>
+    <div className="p-6 text-justify space-y-4 leading-relaxed">
+      {content.description.split("\n").map((para, index) => (
+        <p key={index}>{para}</p>
+      ))}
+    </div>
   </div>
 );
 

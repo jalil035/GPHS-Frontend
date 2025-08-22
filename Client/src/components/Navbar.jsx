@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="bg-gray-800 shadow-md">
       <div className="container mx-auto px-12 py-3 flex items-center justify-between">
         {/* Menu */}
-        <ul className="flex gap-[5.8rem] mx-auto font-medium text-white">
+        <ul className="flex gap-10 mx-auto font-medium text-white">
           {/* প্রচ্ছদ */}
           <li>
             <NavLink
