@@ -146,7 +146,7 @@ const Navbar = () => {
                   to="/academic/info"
                   className="block px-4 py-2 hover:bg-blue-400 duration-200"
                 >
-                  একাডেমিক তথ্য
+                  Login
                 </NavLink>
               </li>
               <li>
