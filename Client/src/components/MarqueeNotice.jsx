@@ -1,14 +1,23 @@
-import React, { useRef } from "react";
-
-const notices = [
-  "নোটিশ ১: আগামীকাল ছুটির ঘোষণা করা হয়েছে।",
-  "নোটিশ ২: নতুন ভর্তি ফরম পাওয়া যাবে অফিস থেকে।",
-  "নোটিশ ৩: আগামী সপ্তাহে পরীক্ষা শুরু হবে।",
-  "নোটিশ ৪: বিদ্যালয়ের বার্ষিক ক্রীড়া প্রতিযোগিতা ১৫ আগস্ট।",
-];
+import { useRef, useEffect, useState } from "react";
+import axios from "axios";
 
 const MarqueeNotice = () => {
+  const [Notices, setNotices] = useState([]);
   const marqueeRef = useRef(null);
+
+  useEffect(() => {
+    const fetchingMarqueeNotice = async () => {
+      try {
+        const res = await axios.get(
+          "/api/noticeBoard/getAll?noticeType=marquee"
+        );
+        setNotices(res.data.data || []);
+      } catch (error) {
+        console.log("Error Fetching Notice", error);
+      }
+    };
+    fetchingMarqueeNotice();
+  }, []);
 
   const handleMouseEnter = () => {
     if (marqueeRef.current) {
@@ -27,15 +36,19 @@ const MarqueeNotice = () => {
       <div
         ref={marqueeRef}
         className="whitespace-nowrap animate-marquee cursor-pointer"
-        style={{ animationDuration: `${notices.length * 12}s` }}
+        style={{ animationDuration: `${Math.max(Notices.length * 10, 20)}s` }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {notices.map((notice, index) => (
-          <span key={index} className="mr-16">
-            {notice}
-          </span>
-        ))}
+        {Notices.length > 0 ? (
+          Notices.map(({ _id, subject }, index) => (
+            <span key={_id || index} className="mr-16">
+              {subject}
+            </span>
+          ))
+        ) : (
+          <span className="mr-16">No Notices Available</span>
+        )}
       </div>
 
       <style>
