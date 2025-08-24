@@ -8,7 +8,7 @@ const CardNotice = () => {
     const getNotices = async () => {
       try {
         const res = await axios.get("/api/noticeBoard/getAll?noticeType=board");
-        setNotices(res.data.data.slice(0, 10));
+        setNotices(res.data.data.slice(0, 7));
       } catch (error) {
         console.error("Error fetching notices:", error);
       }

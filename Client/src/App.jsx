@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import DashBoard from "./pages/DashBoard";
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* অন্যান্য রুট এখানে দিবে */}
+        <Route path="/dashboard" element={<DashBoard />} />
       </Routes>
       <Footer />
     </Router>
