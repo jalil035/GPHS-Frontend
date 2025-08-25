@@ -1,23 +1,19 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Footer from "./components/Footer";
-import DashBoard from "./pages/DashBoard";
+import DashBoard from "./pages/DashBoard/DashBoard";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
-    <Router>
-      <Header />
-      <Navbar />
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/academic/login" element={<Login />} />
       </Routes>
-      <Footer />
-    </Router>
+    </BrowserRouter>
   );
 };
 

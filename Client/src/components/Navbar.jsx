@@ -143,7 +143,8 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/academic/info"
+                  to="/academic/login"
+                  target="_blank"
                   className="block px-4 py-2 hover:bg-blue-400 duration-200"
                 >
                   Login

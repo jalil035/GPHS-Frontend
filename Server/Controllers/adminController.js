@@ -41,6 +41,7 @@ export const registerNewAdmin = async (req, res) => {
   }
 };
 
+
 export const loginAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -83,6 +84,7 @@ export const loginAdmin = async (req, res) => {
     // Success response
     return res.status(200).json({
       message: "Login successful",
+      success: true,
       token,
       user: {
         id: user._id,
@@ -114,9 +116,14 @@ export const logoutAdmin = async (req, res) => {
 
 // Get admin details
 export const getAdminDetails = async (req, res) => {
-  res.status(200).json({
-    message: "admin Details fetched Successfully",
-    admin: req.admin,
-    success: true,
-  });
+  try {
+    const admin = await adminModel.find({})
+    res.status(200).json({
+      message: "admin Details fetched Successfully",
+      data: admin,
+      success: true,
+    });
+  } catch (error) {
+
+  }
 };
